@@ -1,9 +1,9 @@
 
 public class arrayclass {
 	public static void main(String []args) {
-		System.out.println("Below function is defined as array initializer using While loop :");
-		System.out.println();
-		
+		//System.out.println("Below function is defined as array initializer using While loop :");
+		//System.out.println();
+		System.out.println("Index\tvalue");
 		/*
 		int apple[] = new int[5];
 		apple[0] = 10;
@@ -16,12 +16,10 @@ public class arrayclass {
 		int x=0;
 		int apple[] = {10,20,30,40,50,60,70,80,90,100};
 		
-		while(x<=9) {
-			System.out.println(apple[x]);
+		while(x<apple.length) {
+			System.out.println(x +"\t" +apple[x]);
 			x++;
 		}
-		
-		
 		/*
 		System.out.println(apple[0]);
 		System.out.println(apple[1]);
