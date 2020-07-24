@@ -9,12 +9,12 @@ public class sampleone {
 		System.out.println();
 		subclass objsubclass = new subclass();
 		objsubclass.compoundIntrest();
-		
+		// commment section......
 	}
 }
 
 
-
+// highly complicated.....
 
 
 
