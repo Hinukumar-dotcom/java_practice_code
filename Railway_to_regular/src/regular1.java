@@ -3,6 +3,7 @@ public class regular1 {
 	private int hour;
 	private int minute;
 	private int second;
+	private int third;
 	
 	public void setTime(int hh, int mm, int ss) {
 		hour = ((hh>=0 && hh<24 ? hh : 0));
