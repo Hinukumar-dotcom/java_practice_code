@@ -25,6 +25,7 @@ public class Loginform extends JFrame {
 	private JTextField mobilenotext;
 	private JRadioButton male;
 	private JRadioButton female;
+	private JComboBox country_list;
 
 	/**
 	 * Launch the application.
@@ -35,6 +36,7 @@ public class Loginform extends JFrame {
 				try {
 					Loginform frame = new Loginform();
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,6 +47,7 @@ public class Loginform extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings("rawtypes")
 	public Loginform() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(680, 100, 532, 763);
@@ -65,6 +68,7 @@ public class Loginform extends JFrame {
 		contentPane.add(firstnametext);
 		firstnametext.setColumns(10);
 		
+		
 		JLabel Lastname = new JLabel("Last Name");
 		Lastname.setFont(new Font("Tahoma", Font.BOLD, 16));
 		Lastname.setBounds(49, 138, 110, 23);
@@ -77,12 +81,14 @@ public class Loginform extends JFrame {
 		lastnametext.setBounds(49, 174, 388, 32);
 		contentPane.add(lastnametext);
 		
+		
 		JLabel MailId = new JLabel("Email ID");
 		MailId.setLabelFor(this);
 		MailId.setToolTipText("");
 		MailId.setFont(new Font("Tahoma", Font.BOLD, 16));
 		MailId.setBounds(49, 219, 110, 23);
 		contentPane.add(MailId);
+		
 		
 		MailIdtext = new JTextField();
 		MailIdtext.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -91,17 +97,19 @@ public class Loginform extends JFrame {
 		MailIdtext.setBounds(49, 255, 388, 32);
 		contentPane.add(MailIdtext);
 		
+		
 		JLabel Gender = new JLabel("Gender");
 		Gender.setToolTipText("");
 		Gender.setFont(new Font("Tahoma", Font.BOLD, 16));
 		Gender.setBounds(49, 300, 110, 23);
 		contentPane.add(Gender);
 		
-		male = new JRadioButton(" Male");
+		male = new JRadioButton("Male");
 		male.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(male.isSelected()) {
 					female.setSelected(false);
+					
 				}
 			}
 		});
@@ -114,6 +122,7 @@ public class Loginform extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(female.isSelected()) {
 					male.setSelected(false);
+					
 				}
 			}
 		});
@@ -134,12 +143,21 @@ public class Loginform extends JFrame {
 		mobilenotext.setBounds(49, 412, 388, 32);
 		contentPane.add(mobilenotext);
 		
+		
 		JButton submitbutton = new JButton("Submit");
 		submitbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				aftersubmit submit = new aftersubmit();
 				submit.setVisible(true);
 				dispose();
+				System.out.println(firstnametext.getText());
+				System.out.println(lastnametext.getText());
+				System.out.println(MailIdtext.getText());
+				System.out.println(male.getText());
+				System.out.println(female.getText());
+				System.out.println(mobilenotext.getText());
+				System.out.println(country_list.getSelectedItem().toString());
+				
 			}
 		});
 		submitbutton.setBackground(Color.LIGHT_GRAY);
@@ -153,7 +171,7 @@ public class Loginform extends JFrame {
 		country.setBounds(49, 469, 110, 23);
 		contentPane.add(country);
 		
-		JComboBox country_list = new JComboBox();
+		country_list = new JComboBox();
 		country_list.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		country_list.setEditable(true);
 		country_list.setBounds(49, 515, 243, 22);
@@ -166,5 +184,7 @@ public class Loginform extends JFrame {
 		country_list.addItem("Nepal");
 		country_list.addItem("Bhutan");
 		country_list.setSelectedItem("Select Country");
+		
+		
 	}
 }
