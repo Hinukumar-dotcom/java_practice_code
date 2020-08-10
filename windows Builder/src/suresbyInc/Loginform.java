@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class Loginform extends JFrame {
 
@@ -22,6 +23,8 @@ public class Loginform extends JFrame {
 	private JTextField lastnametext;
 	private JTextField MailIdtext;
 	private JTextField mobilenotext;
+	private JRadioButton male;
+	private JRadioButton female;
 
 	/**
 	 * Launch the application.
@@ -56,6 +59,7 @@ public class Loginform extends JFrame {
 		contentPane.add(Firstname);
 		
 		firstnametext = new JTextField();
+		firstnametext.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		firstnametext.setToolTipText("Please enter your first name");
 		firstnametext.setBounds(49, 88, 388, 32);
 		contentPane.add(firstnametext);
@@ -67,6 +71,7 @@ public class Loginform extends JFrame {
 		contentPane.add(Lastname);
 		
 		lastnametext = new JTextField();
+		lastnametext.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lastnametext.setToolTipText("Please enter your last name");
 		lastnametext.setColumns(10);
 		lastnametext.setBounds(49, 174, 388, 32);
@@ -80,6 +85,7 @@ public class Loginform extends JFrame {
 		contentPane.add(MailId);
 		
 		MailIdtext = new JTextField();
+		MailIdtext.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		MailIdtext.setToolTipText("Please enter your mail Id");
 		MailIdtext.setColumns(10);
 		MailIdtext.setBounds(49, 255, 388, 32);
@@ -91,15 +97,29 @@ public class Loginform extends JFrame {
 		Gender.setBounds(49, 300, 110, 23);
 		contentPane.add(Gender);
 		
-		JRadioButton maleradiobutton = new JRadioButton(" Male");
-		maleradiobutton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		maleradiobutton.setBounds(49, 331, 110, 25);
-		contentPane.add(maleradiobutton);
+		male = new JRadioButton(" Male");
+		male.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(male.isSelected()) {
+					female.setSelected(false);
+				}
+			}
+		});
+		male.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		male.setBounds(49, 331, 110, 25);
+		contentPane.add(male);
 		
-		JRadioButton femaleradiobutton = new JRadioButton("Female");
-		femaleradiobutton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		femaleradiobutton.setBounds(164, 332, 127, 25);
-		contentPane.add(femaleradiobutton);
+		female = new JRadioButton("Female");
+		female.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(female.isSelected()) {
+					male.setSelected(false);
+				}
+			}
+		});
+		female.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		female.setBounds(164, 332, 127, 25);
+		contentPane.add(female);
 		
 		JLabel mobileno = new JLabel("Mobile No");
 		mobileno.setToolTipText("");
@@ -108,6 +128,7 @@ public class Loginform extends JFrame {
 		contentPane.add(mobileno);
 		
 		mobilenotext = new JTextField();
+		mobilenotext.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		mobilenotext.setToolTipText("Please enter your mobile no");
 		mobilenotext.setColumns(10);
 		mobilenotext.setBounds(49, 412, 388, 32);
@@ -123,7 +144,27 @@ public class Loginform extends JFrame {
 		});
 		submitbutton.setBackground(Color.LIGHT_GRAY);
 		submitbutton.setFont(new Font("Tahoma", Font.BOLD, 16));
-		submitbutton.setBounds(194, 527, 97, 25);
+		submitbutton.setBounds(194, 627, 97, 25);
 		contentPane.add(submitbutton);
+		
+		JLabel country = new JLabel("Country");
+		country.setToolTipText("");
+		country.setFont(new Font("Tahoma", Font.BOLD, 16));
+		country.setBounds(49, 469, 110, 23);
+		contentPane.add(country);
+		
+		JComboBox country_list = new JComboBox();
+		country_list.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		country_list.setEditable(true);
+		country_list.setBounds(49, 515, 243, 22);
+		contentPane.add(country_list);
+		country_list.addItem("India");
+		country_list.addItem("Pakistan");
+		country_list.addItem("China");
+		country_list.addItem("Srilanka");
+		country_list.addItem("Bangladesh");
+		country_list.addItem("Nepal");
+		country_list.addItem("Bhutan");
+		country_list.setSelectedItem("Select Country");
 	}
 }
